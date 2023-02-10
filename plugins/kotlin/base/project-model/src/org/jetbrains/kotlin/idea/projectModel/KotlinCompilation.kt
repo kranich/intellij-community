@@ -14,6 +14,10 @@ interface KotlinCompilation : KotlinComponent, HasMutableExtras {
      */
     val allSourceSets: Set<KotlinSourceSet>
 
+    @Deprecated(message = "For binary compatibility", level = DeprecationLevel.HIDDEN)
+    @Suppress("unused")
+    fun getAllSourceSets(): Collection<KotlinSourceSet> = allSourceSets
+
     /**
      * Only directly declared source sets of this compilation, i.e. those which are included
      * into compilations directly.
@@ -23,6 +27,10 @@ interface KotlinCompilation : KotlinComponent, HasMutableExtras {
      * (like 'jvm().compilations["main"].source(mySourceSet)' )
      */
     val declaredSourceSets: Set<KotlinSourceSet>
+
+    @Deprecated(message = "For binary compatibility", level = DeprecationLevel.HIDDEN)
+    @Suppress("unused")
+    fun getDeclaredSourceSets(): Collection<KotlinSourceSet> = declaredSourceSets
 
     val associateCompilations: Set<KotlinCompilationCoordinates>
 
